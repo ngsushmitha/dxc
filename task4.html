@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TASK 4</title>
+	<script type="text/javascript">
+		function numOnly(e) {
+			// var x=document.getElementById('txtmob').value;
+
+			//alert(x);
+
+			//alert(e.which);
+			//e.preventDefault();  //prevents events like onkeypress
+
+			if(!(e.which>=48 && e.which<=57))
+			{
+				e.preventDefault();
+			}
+
+
+
+		}
+		
+	</script>
+</head>
+<body>
+<form>
+	<input type="text" name="" id="txtmob" maxlength="10" onkeypress="numOnly(event)">
+	<input type="submit" name="">
+</form>
+</body>
+</html>

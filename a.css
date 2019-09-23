@@ -1,0 +1,8 @@
+body
+{
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+select, input{
+	background: rgba(0,0,0,0);
+}

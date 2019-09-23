@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html onclick="showCoords(event)">
+<head>
+	<script type="text/javascript">
+		function capsOnly(e) {
+			
+
+			if(!(e.which>=65 && e.which<=90))
+			{
+				e.preventDefault();
+			}
+
+
+
+		}
+		function alphOnly(e) {
+			if(!((e.which>=65 && e.which<=90) || (e.which>=97 && e.which<=122)))
+			{
+				e.preventDefault();
+			}
+			
+		}
+		function changeCursor() {
+  				document.getElementById("myP").style.cursor = "zoom-in";
+			}
+
+		function hideImage() {
+			document.getElementById("myImage").style.display = "none";
+		}
+
+		function showCoords(event) {
+    		var x = event.clientX;
+    		var y = event.clientY;
+    		var coords = "X coords: " + x + ", Y coords: " + y;
+    		document.getElementById("demo").innerHTML = coords;
+		}
+
+		function dispAlert() {
+  			alert("Hello! I am an alert box!");
+		}
+
+		function concatNames() {
+			var f=document.getElementById('fname').value;
+			var l=document.getElementById('lname').value;
+			var name=f+" "+l;
+			alert("The entered name is "+name);
+
+		}
+
+		function getRupees() {
+               var retVal = prompt("Enter amount in dollars:");
+               document.getElementById("inr").innerHTML="Amount in rupees is : " + retVal*71.82 +" Rupees";
+               
+            }
+		
+	</script>
+</head>
+<body>
+Enter only captital letters : <input type="text" name="" id="caps" onkeypress="capsOnly(event)">
+	<input type="submit">
+	<br> <br>
+
+
+Enter only alphabets : <input type="text" name="" id="alph" onkeypress="alphOnly(event)">
+	<input type="submit">
+	<br><br>
+
+	<p id="myP" onmouseover="changeCursor()">Mouse over this text and the cursor changes!</p>
+	<br>
+
+	<img id="myImage" src="dog.jpg" onclick="hideImage()" />
+	<br><br>
+
+	<p>Click anywhere on the page to get the coordinates!</p>
+	
+	<p id="demo"></p>
+
+	<a href="https://www.google.com/"  
+	onclick="window.open('https://www.google.com/',  
+						'newwindow', 
+        				'width=1200,height=700'); 
+              			return false;"
+              			>Go to Google</a>
+    <br><br>
+
+    <p>Click the button to display an alert box.</p>
+
+	<button onclick="dispAlert()">Click</button>
+
+	<br><br>
+	Enter your first name : <input type="text" id="fname">
+	<br>
+	Enter your last name : <input type="text" id="lname">
+	<input type="submit" onclick="concatNames()">
+	<br>
+	<br>
+	<p onclick="getRupees()">Click on this text for USD to INR conversion</p>
+	<p id="inr"></p>
+
+</body>
+</html>

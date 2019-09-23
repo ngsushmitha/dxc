@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function tableFill() {
+			
+		
+		var array = [["1","virat","IIT","100","8"],
+                         ["2","rohit","IIT","100","6"],
+                         ["3","shikhar","JNU","90","6"],
+                         ["4","rahul","IIT","80","4"],
+                         ["5","dhoni","IISC","70","4"],
+                         ];
+                table = document.getElementById("myTable");
+                
+                for(var i = 0; i < array.length; i++)
+        			{
+          				var newRow = table.insertRow(table.length);
+          			for(var j = 0; j < array[i].length; j++)
+          				{
+          					var cell = newRow.insertCell(j);
+          					cell.innerHTML = array[i][j];
+              				
+          				}
+        			}
+        		}
+           (
+           	function(){
+           		var n = prompt("enter value");
+           			for(i=1;i<=10;i++)
+           			{
+           				document.write(i*n);
+           				document.write("<br>");
+           			}
+           	}
+           	)();
+	</script>
+</head>
+<body onload="tableFill()">
+<table width="80%" align="center" border="2px">
+	<tr>
+		<td> a </td>
+		<td colspan="2"> b </td>
+		
+	</tr>
+	<tr>
+		<td rowspan="2">d</td>
+		<td>e</td>
+		<td>f</td>
+		
+	</tr>
+	<tr>
+		
+		<td>h</td>
+		<td>i</td>
+		
+	</tr>
+</table>
+<br><br>
+
+
+<br>
+<table id="myTable" width="80%" align="center" border="2px">
+            
+            
+            
+            <tr>
+                <th>Roll no</th>
+                <th>Student Name</th>
+                <th>College</th>
+                <th>Marks</th>
+                <th>Semester</th>
+            </tr>
+            
+            
+        </table>
+</body>
+</html>

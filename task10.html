@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript">
+
+ //localStorage.myName='somename';
+// alert(localStorage.myName);
+
+localStorage.setItem('lastName','KOHLI');
+localStorage.setItem('lastName','SHARMA');
+var myItem=localStorage.getItem('lastName');
+
+alert(myItem);
+function myfun() {
+	navigator.geolocation.getCurrentPosition(fun2);
+}
+function fun2(pos) {
+	var logn = pos.coords.longitude;
+	var latt = pos.coords.latitude;
+	//alert('get longitude '+logn);
+	document.getElementById('ss').innerHTML = logn;
+	document.getElementById('ss1').innerHTML = latt;
+
+}
+</script>
+
+
+</head>
+<body onload="myfun()">
+<p id='ss'></p>
+<br>
+<p id='ss1'></p>
+</body>
+</html>
