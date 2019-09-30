@@ -1,0 +1,36 @@
+select to_char(sysdate,'dd-mm-yyyy hh:mi:ss') "now" from dual;
+
+select to_char(sysdate) "now" from dual;
+
+select to_char(sysdate,'dd/mm/yyyy') "now" from dual;
+
+select to_char(sysdate,'day') "now" from dual;
+
+select to_char(sysdate+10,'dd/mm/yyyy') "10 days from now" from dual;
+
+create table employee1(
+	EmpFName varchar(20),EmpMName varchar(20),EmpLName varchar(20),
+	EmpAge int check(EmpAge between 0 and 50),EmpCity varchar(20) check(EmpCity like 'B%'),
+	EmpDesignation varchar(20) check(EmpDesignation like '%manager'),
+	EmpId varchar(20) primary key check(length(EmpId)=5), empDob date);
+
+insert into employee1 values('manoj','r','hegde',23,'Bangalore','Acc manager','emp01',to_date('17-09-1997','dd-mm-yyyy'));
+insert into employee1 values('sushmitha','','n',23,'Bangalore','Sales manager','emp02',to_date('14-09-1997','dd-mm-yyyy'));
+insert into employee1 values('prathibha','','v',25,'Bangalore','Dev manager','emp03',to_date('07-08-1995','dd-mm-yyyy'));
+insert into employee1 values('shreya','s','yadav',22,'Bijapur','Marketing manager','emp04',to_date('16-04-1997','dd-mm-yyyy'));
+insert into employee1 values('sushma','s','srinivas',21,'Bidar','Acc manager','emp05',to_date('17-12-1997','dd-mm-yyyy'));
+
+update employee1 set EmpCity='Bijapur' where EmpId='emp01';
+
+commit;
+
+delete from employee1 where empid='emp01';
+
+delete from employee1;
+
+rollback;
+
+select empfname,empmname,emplname,to_char(empdob,'dd-mm-yyyy') from employee1;
+
+select initcap(substr(empfname,0,1))||'.'||initcap(substr(empmname,0,1))||'.'||initcap(emplname) as "Employee Name"from employee1;
+
