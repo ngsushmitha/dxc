@@ -1,0 +1,100 @@
+collections - table
+fields - columns
+records - rows
+show dbs - show all databases
+db - current database
+use dbName - create and switch to dbName
+insert()
+find() - select
+find().pretty() - shows in json format
+findOne() - selects only one
+update() - update
+remove(param) - delete specific
+remove() - delete all
+db.createCollection("test")
+db.myColl.insert( {} )
+db.myColl.drop()
+
+mongod - starts the server
+mongo command for mongo shell
+
+
+
+db.studs.aggregate(
+[
+{
+$group :
+{
+_id : "sname",
+highest:{$max:"$marks"}
+}
+}
+]
+);
+
+Tasks: 
+
+1) db.studs.find({},{_id:0,sname:1,marks:1}).sort({"marks":-1}).limit(1);
+
+2) db.studs.aggregate([
+{ "$group" : { 
+  "_id" : "$gender",
+  "highest":{$max:"$marks"}
+}}
+]);
+
+db.studs.find({marks:90},{_id:0,sname:1});
+
+3) db.studs.aggregate([
+  { $group: {
+     _id : "$sem",
+    "highest":{$max:"$marks"}
+  }}])
+
+4) db.studs.aggregate([
+  { $group: {
+     _id : "$sem",
+    "highest":{$max:"$marks"}
+  }},
+  {
+   $match:{"highest":{$gt:80},_id:{$gt:3}}
+} 
+])
+
+5) db.players.update(
+    {},
+    { $unset : {'address':1}},false,true);
+
+
+
+Connection with Spring boot:
+-> create user with password and roles in admin database
+-> login using mongo -u dxc -p pass 
+
+-> to perform backup of data, come out of mongo shell, then mongodump (dumping all databases)
+-> mongodump --db backupdxc --out dumpdxc (dumping specific database)
+-> to restore backup data, come out of mongo shell , then mongorestore dumpdxc
+-> mongodump --db backupdxc --collection student --out dumpfolderstudent (dumping specific collection)
+-> mongodump --db backupdxc --excludeCollection=student --out dumpfoldercollege (excluding specific collection)
+-> mongodump --db backupdxc --excludeCollectionsWithPrefix=stu --out dumpfoldercollege
+-> mongodump --db backupdxc --collection student query { rno:{$gt:102} } --out dumpfolderstudentrows (dumping specific rows)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
